@@ -1,0 +1,33 @@
+body{
+    background-image: url("../images/bg-home-min.png");
+    background-size: cover;
+}
+.container-body{
+    margin-top: 10%;
+    height: 120vh;
+}
+
+.text-muted {
+    color: #f0f0f0!important;
+}
+
+.text-muted-no {
+    color: rgb(77, 73, 73)!important;
+}
+
+#labelForm{
+    font-size: 35px;
+    color: #f0f0f0!important;
+}
+
+#labelFormCheck{
+    color: #f0f0f0!important;
+}
+
+.aHref{
+    color: #f0f0f0!important;
+}
+
+.warnainputih{
+    color: #f0f0f0 !important;
+}
