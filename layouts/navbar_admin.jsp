@@ -6,22 +6,17 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"><%= new java.util.Date()%> <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Manage
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Users</a>
-                  <a class="dropdown-item" href="manage-place.jsp">Places</a>
-                  <a class="dropdown-item" href="manage-payment.jsp">Payment Type</a>
-                  <a class="dropdown-item" href="manage-category.jsp">Categories</a>
-                </div>
-              </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Places</a>
+              <a class="nav-link" href="index.jsp">Drinks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="cart.jsp">Shopping Cart</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="recomendation.jsp">Recomendation</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="search.jsp">Search Drink</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
