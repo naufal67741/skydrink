@@ -2,6 +2,10 @@
 <%@ page import="java.sql.*" %>
 
 <%
+
+        if(session.getAttribute("user_name") == null){ 
+                response.sendRedirect("login.jsp");
+        }else{
         String user_id = session.getAttribute("user_id").toString();
         String item_id = (String)request.getParameter("item_id");
         String item_price = (String)request.getParameter("item_price");
@@ -29,5 +33,5 @@
 
             response.sendRedirect("index.jsp");
         }
-        
+    }
 %>

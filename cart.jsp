@@ -1,3 +1,6 @@
+<% if(session.getAttribute("user_name") == null){
+        response.sendRedirect("login.jsp");
+}else { %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +24,7 @@
     <div class="body-content">
         <div class="container container-body">
             <%
+                
                 String user_id = session.getAttribute("user_id").toString();
                 String item_id = (String)request.getParameter("item_id");
                 String item_price = (String)request.getParameter("item_price");
@@ -67,3 +71,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 </body>
 </html>
+<% } %>
