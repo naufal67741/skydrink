@@ -31,6 +31,11 @@
                 grandTotal += rs.getInt("totalPrice");
             }
         %>
+        <%
+                  String error = (String) request.getParameter("err");
+                  if(error != null){ %>
+                    <h1 class="errorStyling"><%= error %></h1>
+                <% } %>
         <h4 class="mb-3">Your Total Price : <%=grandTotal%></h4>
         <h5 class="mb-5">Please input your identity down below !</h5>
             <form role="form" action="submit-checkout.jsp" method="POST">

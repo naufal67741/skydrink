@@ -20,6 +20,11 @@
     <div class="body-content">
         <div class="container container-body">
             <form action="do-login.jsp" method="POST">
+                <%
+                  String error = (String) request.getParameter("err");
+                  if(error != null){ %>
+                    <h1 class="errorStyling"><%= error %></h1>
+                <% } %>
                 <div class="form-group">
                   <label for="exampleInputEmail1" id="labelForm">Email address</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">

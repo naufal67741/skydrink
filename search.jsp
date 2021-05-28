@@ -20,6 +20,11 @@
     <% } %>
     <div class="container mt-5">
         <form action="search-result.jsp" method="POST">
+            <%
+              String error = (String) request.getParameter("err");
+              if(error != null){ %>
+                <h1 class="errorStyling"><%= error %></h1>
+            <% } %>
             <div class="form-group">
               <label for="exampleInputEmail1">Sweetness Level</label>
               <input type="number" name = "sweetnessLevel" placeholder="0-4" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

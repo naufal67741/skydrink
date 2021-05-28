@@ -30,6 +30,11 @@
                 ResultSet rs = st.executeQuery(query);
                 while(rs.next()){
             %>
+            <%
+                  String error = (String) request.getParameter("err");
+                  if(error != null){ %>
+                    <h1 class="errorStyling"><%= error %></h1>
+                <% } %>
                     <div class="card">
                       <img src="../dist/img/{{$d->image}}" class="card-img-top" alt="...">
                       <div class="card-body">

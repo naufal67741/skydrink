@@ -2,7 +2,7 @@
 <%@ page import="java.sql.*" %>
 
 <%
-
+        
         if(session.getAttribute("user_name") == null){ 
                 response.sendRedirect("login.jsp");
         }else{

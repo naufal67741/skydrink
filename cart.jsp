@@ -34,7 +34,15 @@
                 // String query_select = "SELECT * FROM carts WHERE user_id="+user_id;
                 String query = "SELECT * FROM carts INNER JOIN items ON carts.item_id = items.id WHERE carts.user_id = "+user_id;
                 ResultSet rs = st.executeQuery(query);
-                %>
+                if(!rs.next()){ %>
+                    <h1>You have no item on your cart for now</h1>
+                <% } else { %>
+                <%
+                  String error = (String) request.getParameter("err");
+                  if(error != null){ %>
+                    <h1 class="errorStyling"><%= error %></h1>
+                <% } %>
+
                 <table class="table table-dark">
                         <thead>
                             <tr>
@@ -63,6 +71,8 @@
                         <button type="button" class="btn btn-block btn-primary btn-sm">CHECKOUT</button>
                     </a>
                 </div>
+
+                <% } %>
         </div>
     </div>
 
