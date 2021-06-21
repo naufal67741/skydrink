@@ -21,7 +21,7 @@
     <% }else if(session.getAttribute("user_name") != null){ %>
       <%@include file="layouts/navbar_member.jsp" %>  
     <% } %>
-    <div class="body-content">
+    <div class="body-content mt-5">
         <div class="container container-body">
             <%
                 
@@ -34,43 +34,43 @@
                 // String query_select = "SELECT * FROM carts WHERE user_id="+user_id;
                 String query = "SELECT * FROM carts INNER JOIN items ON carts.item_id = items.id WHERE carts.user_id = "+user_id;
                 ResultSet rs = st.executeQuery(query);
-                if(!rs.next()){ %>
-                    <h1>You have no item on your cart for now</h1>
-                <% } else { %>
+                if(rs.isBeforeFirst()){ %>
                 <%
                   String error = (String) request.getParameter("err");
                   if(error != null){ %>
                     <h1 class="errorStyling"><%= error %></h1>
                 <% } %>
-
-                <table class="table table-dark">
-                        <thead>
-                            <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Item Name</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Sub total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                    <%int count = 0;
-                    while(rs.next()){ 
-                    count++;
-                    %>
-                            <tr>
-                            <th scope="row"><%=count%></th>
-                            <td><%=rs.getString("items.name")%></td>
-                            <td><%=rs.getInt("qty")%></td>
-                            <td>$<%=rs.getInt("totalPrice")%></td>
-                            </tr>               
-                <% } %>
-                      </tbody>
-                      </table>   
-                <div class="col-md-4">
-                    <a href="checkout.jsp">
-                        <button type="button" class="btn btn-block btn-primary btn-sm">CHECKOUT</button>
-                    </a>
-                </div>
+                    <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Item Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Sub total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        <%int count = 0;
+                        while(rs.next()){ 
+                        count++;
+                        %>
+                                <tr>
+                                <th scope="row"><%=count%></th>
+                                <td><%=rs.getString("items.name")%></td>
+                                <td><%=rs.getInt("qty")%></td>
+                                <td>$<%=rs.getInt("totalPrice")%></td>
+                                </tr>               
+                    <% } %>
+                        </tbody>
+                        </table>   
+                    <div class="col-md-4">
+                        <a href="checkout.jsp">
+                            <button type="button" class="btn btn-block btn-primary btn-sm">CHECKOUT</button>
+                        </a>
+                    </div>
+                    
+                <% } else { %>
+                    <h1>You have no item on your cart for now</h1>
 
                 <% } %>
         </div>

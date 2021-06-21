@@ -22,16 +22,22 @@
             ResultSet rs = st.executeQuery(query_select);
             if(rs.next()){
                 currentStock = rs.getInt("stock");
-                currentStock--;
+                if(qty_int > currentStock){
+                    response.sendRedirect("index.jsp?err=cant buy more than the available stock");
+                }else{
+                    currentStock-=qty_int;
+                    String query_insert = "INSERT INTO `carts` (`qty`, `totalPrice`, `user_id`, `item_id`, `created_at`, `updated_at`, `deleted_at`) VALUES ('"+qty+"' , '"+totalPrice+"', '"+user_id+"', '"+item_id+"', NULL, NULL, NULL);";
+                    st.executeUpdate(query_insert);
+
+                    String query_update = "UPDATE `items` SET `stock` = '"+currentStock+"' WHERE `items`.`id` = "+item_id+";";
+                    st.executeUpdate(query_update);
+
+                    response.sendRedirect("index.jsp");
+                }
+                
             }
 
-            String query_insert = "INSERT INTO `carts` (`qty`, `totalPrice`, `user_id`, `item_id`, `created_at`, `updated_at`, `deleted_at`) VALUES ('"+qty+"' , '"+totalPrice+"', '"+user_id+"', '"+item_id+"', NULL, NULL, NULL);";
-            st.executeUpdate(query_insert);
-
-            String query_update = "UPDATE `items` SET `stock` = '"+currentStock+"' WHERE `items`.`id` = "+item_id+";";
-            st.executeUpdate(query_update);
-
-            response.sendRedirect("index.jsp");
+            
         }
     }
 %>

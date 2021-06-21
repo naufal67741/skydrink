@@ -42,7 +42,7 @@
                     <h1 class="errorStyling"><%= error %></h1>
                 <% } %>
                     <div class="card">
-                      <img src="../dist/img/{{$d->image}}" class="card-img-top" alt="...">
+                      <img src="public/images/<%=rs.getInt("id")+".png"%>" class="card-img-top" alt="...">
                       <div class="card-body">
                         <h5 class="card-title"><%=rs.getString("name")%></h5>
                         <p class="card-text"><%=rs.getString("description")%></p>
