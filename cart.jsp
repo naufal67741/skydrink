@@ -71,7 +71,7 @@
                     
                 <% } else { %>
                     <h1>You have no item on your cart for now</h1>
-
+                    <p> Please input the item</p>
                 <% } %>
         </div>
     </div>
